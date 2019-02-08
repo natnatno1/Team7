@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 4100832787760308828, guid: 23c149d8b4b60234eacc21618a4495b5,
         type: 3}
       propertyPath: m_Name
-      value: Bullet2
+      value: Bullet2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100832787760308828, guid: 23c149d8b4b60234eacc21618a4495b5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 4670423389546326049, guid: 23c149d8b4b60234eacc21618a4495b5,
         type: 3}
