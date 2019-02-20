@@ -8,18 +8,21 @@ public class Shooting_Behaviour : MonoBehaviour
    // public Collider coll;
     public GameObject bulletCheck;
 
+    public GameManager_Script GM_Script;
+
     public Vector3 Target;
     public Vector3 Origin;
     public float Aimx;
     public float Aimz;
     public float speed;
-    public Rigidbody BulletRB;
+    public GameObject BulletRB;
     public float CameraY;
 
     void Start()
     {
         //coll = GetComponent<Collider>();
         speed = 150;
+        GameObject.Find("Game_Manager").GetComponent<GameManager_Script>();
         
     }
 
@@ -33,7 +36,7 @@ public class Shooting_Behaviour : MonoBehaviour
             
 
             Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-            Debug.DrawRay(transform.position, transform.forward * 50, Color.yellow, 5, true);
+            Debug.DrawRay(transform.position, transform.forward * 50, Color.yellow, 0.01f, true);
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -46,6 +49,8 @@ public class Shooting_Behaviour : MonoBehaviour
 
                 //Aimx = hitpoint.point.x;
                 // Aimz = hitpoint.point.z;
+
+                Destroy(hitpoint.collider.gameObject);
 
 
 
@@ -61,24 +66,39 @@ public class Shooting_Behaviour : MonoBehaviour
                 //Target.x = Camera.main.gameObject.transform.position.x;
                 // Target.z = Camera.main.gameObject.transform.position.z;
 
-                Origin.x = ray.origin.x;
-                Origin.z = ray.origin.z;
-                Origin.y = ray.origin.y;
+                //Origin.x = ray.origin.x;
+                //Origin.z = ray.origin.z;
+                //Origin.y = ray.origin.y;
 
-                Target.x = hitpoint.point.x;
-                Target.z = hitpoint.point.z;
-                Target.y = hitpoint.point.y;
+                //Target.x = hitpoint.point.x;
+                //Target.z = hitpoint.point.z;
+                //Target.y = hitpoint.point.y;
 
                 //Instantiate(bulletCheck, Target, Quaternion.identity);
 
-                Rigidbody bulletCheck = Instantiate(BulletRB, Origin, Quaternion.identity)as Rigidbody;
+                //Instantiate(BulletRB, Origin, Quaternion.identity);
 
-                bulletCheck.velocity = transform.TransformDirection(new Vector3(Target.x, Target.y, speed));
+                //bulletCheck.Vector3.MoveTowards(Target.x, Target.y, speed);
+
+                //CreateBullet();
+
+
+
 
 
             }
         }
     }
+
+   // private void CreateBullet()
+   // {
+   //     GameObject obj = (GameObject)Instantiate(BulletRB, Origin, Quaternion.identity);
+        //obj.transform.position = Vector3.MoveTowards(Target, Target, speed);
+    //    obj.GetComponent<Rigidbody>().velocity = transform.GetComponent<Rigidbody>().velocity;
+    //    GM_Script.BulletVelocity = Target;
+   // }
+
+
 }
 
 

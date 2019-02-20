@@ -7,6 +7,10 @@ public class GameManager_Script : MonoBehaviour
 
     public int Score;
     public int bullets;
+    public GameObject Plane;
+    public float yvalue;
+
+    public Vector3 BulletVelocity;
     
 
     // Start is called before the first frame update
@@ -18,7 +22,7 @@ public class GameManager_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        yvalue = GameObject.Find("Game_Manager").transform.position.y;
     }
 
     void AddScore(int NewScore)
