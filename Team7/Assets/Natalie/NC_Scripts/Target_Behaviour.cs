@@ -14,6 +14,7 @@ public class Target_Behaviour : MonoBehaviour
     void Start()
     {
         GM_Script = GameObject.Find("Game_Manager").GetComponent<GameManager_Script>();
+        TargetScore = 100;
     }
 
     // Update is called once per frame
@@ -24,10 +25,11 @@ public class Target_Behaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Projectile")
-        {
-            GM_Script.SendMessage("AddScore", TargetScore);
+       // if (collision.gameObject.tag == "Projectile")
+        //{
+         //   GM_Script.SendMessage("AddScore", TargetScore);
             //Destroy(this.gameObject);
-        }
+        //}
+        
     }
 }

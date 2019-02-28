@@ -19,7 +19,7 @@ public class AI_Wander : MonoBehaviour
         GM_Script = GameObject.Find("Game_Manager").GetComponent<GameManager_Script>();
         Range = (Random.Range(0, 9));
         NextWaypoint = Waypoints[Range];
-        speed = 10;
+        speed = 1;
         
     }
 
