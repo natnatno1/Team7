@@ -28,6 +28,7 @@ public class Shooting_Behaviour3 : MonoBehaviour
     public GameObject TargetReticle;
 
     public float AmmoValue;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +116,7 @@ public class Shooting_Behaviour3 : MonoBehaviour
 
                     if (hitpoint.collider.tag == ("Target"))
                     {
+                        hitpoint.transform.GetComponent<Target_Behaviour>().SendMessage("Explode");
                         Destroy(hitpoint.transform.gameObject); // destroy the object hit
                         GM_Script.SendMessage("AddScore", 100);
                     }

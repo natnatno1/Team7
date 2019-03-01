@@ -8,6 +8,7 @@ public class Target_Behaviour : MonoBehaviour
     public int TargetScore;
     public float Health;
     public GameManager_Script GM_Script;
+    public ParticleSystem Explosion;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,11 @@ public class Target_Behaviour : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Explode()
+    {
+        Instantiate(Explosion, transform.position, Quaternion.identity);
     }
 
     private void OnCollisionEnter(Collision collision)
