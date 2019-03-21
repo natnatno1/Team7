@@ -25,6 +25,7 @@ public class AI_Wander : MonoBehaviour
         speed = 1;
         Attacking = false;
 
+
         InvokeRepeating("SendDamage", 0, 1);
 
 

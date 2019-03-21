@@ -144,19 +144,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GM_Script: {fileID: 0}
   Waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5138267690519719311, guid: 7ff1d18f998d10d45b884d1358a3b265, type: 3}
+  - {fileID: 8654626606230009040, guid: 338e8422e4bdc1940b5f921a6f1bf963, type: 3}
+  - {fileID: 2109250582185735614, guid: beb4c168a192b6b4d9d0c139b4258994, type: 3}
+  - {fileID: 5557577029382703661, guid: 5bb2fa532d6ac5a4ab4b255ff4111eac, type: 3}
+  - {fileID: 4481615667823927743, guid: eddcacdc6f01d3147b76a8648a8d50a3, type: 3}
+  - {fileID: 6014433114080555121, guid: 4800bf4e8ea54d94e97c9ec904215dca, type: 3}
+  - {fileID: 4956561317279023618, guid: 6041a3b3038813e47a7bae13d6e7f96f, type: 3}
+  - {fileID: 3395164564037239695, guid: c39c485fff9b556408914ce6d2b8d0f6, type: 3}
   NextWaypoint: {fileID: 0}
   speed: 1
   Range: 0
+  Attacking: 0
+  Base: {fileID: 0}
+  GMBase: {fileID: 0}
 --- !u!114 &1838322922
 MonoBehaviour:
   m_ObjectHideFlags: 0
