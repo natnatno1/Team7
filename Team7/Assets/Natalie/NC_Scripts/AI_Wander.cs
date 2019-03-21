@@ -10,7 +10,10 @@ public class AI_Wander : MonoBehaviour
     public GameObject NextWaypoint;
     public float speed;
     public int Range;
-
+    public bool Attacking;
+    public GameObject Base;
+    public GameObject GMBase;
+    
 
 
 
@@ -20,11 +23,15 @@ public class AI_Wander : MonoBehaviour
         Range = (Random.Range(0, 9));
         NextWaypoint = Waypoints[Range];
         speed = 1;
-        
+        Attacking = false;
+
+        InvokeRepeating("SendDamage", 0, 1);
+
+
     }
+    
 
-
-    void GotoNextPoint()
+        void GotoNextPoint()
     {
         Range = (Random.Range(0, 9));
         NextWaypoint = Waypoints[Range];
@@ -38,20 +45,30 @@ public class AI_Wander : MonoBehaviour
 
         //gameObject.transform.position = new Vector3(NextWaypoint.transform.position.x, NextWaypoint.transform.position.y, NextWaypoint.transform.position.z);
 
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, NextWaypoint.transform.position, step);
+        if (Attacking == false)
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, NextWaypoint.transform.position, step);
+        }
 
-       // if (gameObject.transform.position == NextWaypoint.transform.position)
-        //{
-        //    GotoNextPoint();
-        //}
+        else if (Attacking == true)
+        {
+            speed = 0;
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, NextWaypoint.transform.position, step);
+
+            
+        }
+            
+
+           
+            
+       
+           
+        }
+    
 
 
-
-
-        //transform.position = new Vecotr3(transform.position.x + 0.001f, transform.position.y, trnasform.position.z);
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -64,8 +81,29 @@ public class AI_Wander : MonoBehaviour
         {
             GotoNextPoint();
         }
+
+        else if (other.gameObject.tag == "Base")
+        {
+            Attacking = true;
+        }
     }
+
+    void SendDamage()
+    {
+
+        if (Attacking == true)
+        {
+            Base.GetComponent<Base_Behaviour>().Base_Health -= 1;
+        }
+        
+    }
+    
+
+
+
+
 }
+
 
 
 

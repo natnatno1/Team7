@@ -38,6 +38,9 @@ public class Shooting_Behaviour3 : MonoBehaviour
         MuzzleFlashTimer = 0.01f;
         GunSounds = GetComponent<AudioSource>();
         AmmoValue = 1;
+        TargetReticle = GameObject.Find("Game_Manager/UI/Reticle/ReticleTargetOn");
+        MuzzleFlash = GameObject.Find("Game_Manager/GunCanvas").GetComponentInChildren<ParticleSystem>();
+        GM_Script.GameOver = false;
 
     }
 
@@ -88,7 +91,7 @@ public class Shooting_Behaviour3 : MonoBehaviour
 
         //if (Input.touchCount > 0)
         {
-            if (GM_Script.Ammo > 0)
+            if (GM_Script.Ammo > 0  && GM_Script.GameOver == false)
             {
             Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             Debug.DrawRay(transform.position, transform.forward * 250, Color.yellow, 0.01f, true);
@@ -127,10 +130,12 @@ public class Shooting_Behaviour3 : MonoBehaviour
 
             }
 
-            else if (GM_Script.Ammo <= 0)
+            else if (GM_Script.Ammo <= 0 && GM_Script.GameOver == false)
             {
                 GunEmptyEffects();
             }
+
+            
 
         }
     }
