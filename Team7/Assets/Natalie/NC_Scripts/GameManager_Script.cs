@@ -208,11 +208,6 @@ public class GameManager_Script : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    void LoadScene2()
-    {
-        SceneManager.LoadScene(2);
-    }
-
 
     void HighScores()
     {
